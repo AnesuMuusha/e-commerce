@@ -1,0 +1,1 @@
+mongodb+srv://anesumuusha:08423078@cluster0.wie2jtf.mongodb.net/amazona?retryWrites=true&w=majority
