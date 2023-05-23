@@ -1,7 +1,9 @@
 import express from 'express';
-import data from './data.js';
 import mongoose from 'mongoose';
 import dotenv from 'dotenv';
+import seedRouter from './routes/seedRoutes.js';
+import productRouter from './routes/productRoutes.js';
+import userRouter from './routes/userRoutes.js';
 
 dotenv.config();
 
@@ -16,24 +18,17 @@ mongoose
 
 const app = express();
 
-app.get('/api/products', (req, res) => {
-  res.send(data.products);
-});
-app.get('/api/products/:_id', (req, res) => {
-  const product = data.products.find((x) => x.slug === req.params._id);
-  if (product) {
-    res.send(product);
-  } else {
-    res.status(404).send({ message: 'Product Not Found333' });
-  }
-});
-app.get('/api/products/:_id', (req, res) => {
-  const product = data.products.find((x) => x._id === req.params._id);
-  if (product) {
-    res.send(product);
-  } else {
-    res.status(404).send({ message: 'Product Not Found222' });
-  }
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+
+
+app.use('/api/seed', seedRouter);
+app.use('/api/products', productRouter);
+
+app.use('/api/users', userRouter);
+
+app.use((err, req, res, next) => {
+  res.status(500).send({ message: err.message });
 });
 
 const port = process.env.PORT || 5000;
