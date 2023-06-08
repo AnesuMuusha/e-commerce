@@ -79,3 +79,42 @@ main {
 .text-bold {
   font-weight: bold;
 }
+.heading1{
+  font-weight: 100;
+  font-size:large;
+}.heading2{
+  font-weight: 300;
+  font-size:large;
+}
+.heading3{
+  margin-top: 2%;
+}
+
+.welcome-banner {
+  padding: 20px;
+  color: #fff;
+  font-family: "Amazon Ember", Arial, sans-serif;
+}
+
+.bg-banner {
+  background-color: #232f3e;
+}
+
+.text-center {
+  text-align: center;
+}
+.date{
+  font-weight: 500;
+}
+
+.strike {
+  text-decoration: line-through;
+}
+.sticky-header {
+  position: sticky;
+  top: 0;
+  z-index: 100; }
+
+.space{
+  margin-top: 1%;
+}
