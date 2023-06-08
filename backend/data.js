@@ -1,5 +1,5 @@
 import bcrypt from 'bcryptjs';
-
+// run >>> on your browser to apple changes made to data.js >>> http://localhost:5000/api/seed
 const data = {
   users: [
     {
@@ -23,7 +23,7 @@ const data = {
             category: 'Shirts',
             image: '/images/p1.jpg',
             price: 120,
-            countInStock: 50,
+            countInStock: 5000,
             brand: 'Nike',
             rating: 4.5,
             numReviews: 10,
@@ -36,7 +36,7 @@ const data = {
             category: 'Shirts',
             image: '/images/p2.jpg',
             price: 250,
-            countInStock: 50,
+            countInStock: 5000,
             brand: 'Adidas',
             rating: 4.0,
             numReviews: 10,
@@ -49,7 +49,7 @@ const data = {
             category: 'Pants',
             image: '/images/p3.jpg',
             price: 25,
-            countInStock: 50,
+            countInStock: 5000,
             brand: 'Nike',
             rating: 4.5,
             numReviews: 14,
@@ -62,7 +62,7 @@ const data = {
             category: 'Pants',
             image: '/images/p4.jpg',
             price: 65,
-            countInStock: 50,
+            countInStock: 5000,
             brand: 'Puma',
             rating: 4.5,
             numReviews: 10,
