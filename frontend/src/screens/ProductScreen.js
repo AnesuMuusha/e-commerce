@@ -106,7 +106,12 @@ function ProductScreen() {
             <ListGroup.Item>
                   <Row>
                     <Col>Price:</Col>
-                    <Col>${product.price}</Col>
+                  <Row >${product.price * 0.98} for 1+ pieces</Row>
+                  <div className="strike"><Row >${product.price} </Row></div>
+                    <Row>${product.price * 0.9} for 10+ pieces</Row> 
+                    <div className="strike"><Row >${product.price} </Row></div>
+                    <Row>${product.price * 0.8} for 20+ pieces</Row>
+                    <div className="strike"><Row >${product.price} </Row></div>
                   </Row>
                 </ListGroup.Item>
                 <ListGroup.Item>
@@ -123,12 +128,12 @@ function ProductScreen() {
 
                   {product.countInStock > 0 && (
                     <ListGroup.Item>
-                      <div className="d-grid">
-                        <Button onClick={addToCartHandler} variant="primary">
-                          Add to Cart
-                        </Button>
-                      </div>
-                    </ListGroup.Item>
+                    <div className="d-grid">
+                      <Button onClick={addToCartHandler} variant="primary">
+                        Add to Cart
+                      </Button>
+                    </div>
+                  </ListGroup.Item>
                   )}
               </ListGroup>
             </Card.Body>
