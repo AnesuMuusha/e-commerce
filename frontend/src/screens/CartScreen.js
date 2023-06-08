@@ -28,10 +28,26 @@ export default function CartScreen() {
       payload: { ...item, quantity },
     });
   };
+
   const removeItemHandler = (item) => {
     ctxDispatch({ type: 'CART_REMOVE_ITEM', payload: item });
   };
 
+  const getItemPrice = (item) => {
+    const quantity = item.quantity;
+    let price = item.price;
+
+    if (quantity >= 1 && quantity <= 9) {
+      price *= 0.98; // Apply 2% discount
+    } else if (quantity >= 10 && quantity <= 19) {
+      price *= 0.90; // Apply 10% discount
+    } else if (quantity >= 20) {
+      price *= 0.80; // Apply 20% discount
+    }
+
+    return price.toFixed(2);
+  };
+  
   const checkoutHandler = () => {
     navigate('/signin?redirect=/shipping');
   };
@@ -82,7 +98,7 @@ export default function CartScreen() {
                         <i className="fas fa-plus-circle"></i>
                       </Button>
                     </Col>
-                    <Col md={3}>${item.price}</Col>
+                    <Col md={3}>${getItemPrice(item)}</Col>
                     <Col md={2}>
                       <Button
                         onClick={() => removeItemHandler(item)}
@@ -105,7 +121,10 @@ export default function CartScreen() {
                   <h3>
                     Subtotal ({cartItems.reduce((a, c) => a + c.quantity, 0)}{' '}
                     items) : $
-                    {cartItems.reduce((a, c) => a + c.price * c.quantity, 0)}
+                    {cartItems.reduce(
+                      (a, c) => a + getItemPrice(c) * c.quantity,
+                      0
+                    )}
                   </h3>
                 </ListGroup.Item>
                 <ListGroup.Item>
