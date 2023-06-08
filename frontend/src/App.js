@@ -66,7 +66,7 @@ function App() {
         }
       >
     <ToastContainer position="bottom-center" limit={1} />
-      <header>
+      <header className='sticky-header'>
       <Navbar bg="dark" variant="dark" expand="lg">
       <Container>
       <Button
@@ -77,7 +77,7 @@ function App() {
               </Button>
 
         <LinkContainer to='/'>
-        <Navbar.Brand>amazona</Navbar.Brand>
+        <Navbar.Brand>FastFashionWholesale</Navbar.Brand>
         </LinkContainer>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
               <Navbar.Collapse id="basic-navbar-nav">
