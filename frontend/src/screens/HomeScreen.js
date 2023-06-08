@@ -6,6 +6,7 @@ import Product from '../components/Product';
 import { Helmet } from 'react-helmet-async';
 import LoadingBox from '../components/LoadingBox';
 import MessageBox from '../components/MessageBox';
+import WelcomeBanner from '../components/WelcomeBanner';
 const reducer =(state,action)=>{
   switch (action.type){
     case 'FETCH_REQUEST':
@@ -40,8 +41,16 @@ fetchData();
   }, []);
   return (
     <div>
-      <Helmet><title>Amazon</title></Helmet>
-           <h1>Featured Products</h1>
+<div className=''>
+<WelcomeBanner/>
+</div>
+      <Helmet><title>FastFashionWholesale</title></Helmet>
+     <div></div>
+      <div className='heading3'>
+      <h1 className='heading1'  style={{ textAlign: 'center' }}>Get our amazing wholesale prices FOR jUST three or more items.</h1>
+      <p className='heading2'  style={{ textAlign: 'center' }}>Fashion has never been this effortless. 🎉✨👠👜👗</p>
+      </div>
+
       <div className='products'>
         {
         loading?(
