@@ -12,6 +12,7 @@ import { getError } from '../utils';
 import { Store } from '../Store';
 import CheckoutSteps from '../components/CheckoutSteps';
 import LoadingBox from '../components/LoadingBox';
+import DeliveryEstimator from '../components/DeliveryEstimator';
 
 const reducer = (state, action) => {
   switch (action.type) {
@@ -145,10 +146,15 @@ export default function PlaceOrderScreen() {
               <Card.Title>Order Summary</Card.Title>
               <ListGroup variant="flush">
                 <ListGroup.Item>
-                  <Row>
+                <Row>
                     <Col>Items</Col>
                     <Col>${cart.itemsPrice.toFixed(2)}</Col>
                   </Row>
+                  <Row>
+                    <Col>Itemsz</Col>
+                    <Col>${cart.itemsPrice.toFixed(2)}</Col>
+                  </Row>
+                  
                 </ListGroup.Item>
                 <ListGroup.Item>
                   <Row>
@@ -181,7 +187,10 @@ export default function PlaceOrderScreen() {
                     >
                       Place Order
                     </Button>
-                  </div>
+                    <div>estimated delivery DATE [8 working days]
+                    <DeliveryEstimator/>
+                    </div>
+                                      </div>
                   {loading && <LoadingBox></LoadingBox>}
                 </ListGroup.Item>
               </ListGroup>
